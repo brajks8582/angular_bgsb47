@@ -10,10 +10,12 @@ import {IStatements}  from '../../../../repo/Statements'
 })
 export class StatementsComponent implements OnInit {
   public myStatements:any = [];
+
+
   constructor(private statementobj : StatementsmentsService) { }
 
   ngOnInit(): void {
     this.myStatements=this.statementobj.getmyStatements().subscribe(data=>this.myStatements=data);
   }
-
+  
 }

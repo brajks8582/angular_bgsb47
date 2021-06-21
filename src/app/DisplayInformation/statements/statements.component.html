@@ -1,4 +1,22 @@
-<p>statements works!</p>
-<ul *ngFor="let x of myStatements">
+<!-- <p>statements works!</p> -->
+<!-- <ul *ngFor="let x of myStatements">
     <li>{{x.TransactionID}}:{{x.TransactionAmount}}:{{x.AccountNo}}:{{x.BeneficiaryID}}:{{x.TransactionDate}}:{{x.TransactionType}}:{{x.TransactionMode}} </li>
-    </ul>
+</ul> -->
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Date</th>
+        <th scope="col">Narration</th>
+        <th scope="col">Refference No.</th>
+        <th scope="col">Debit</th>
+        <th scope="col">Credit</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let x of myStatements">
+        <td scope="col">{{x.TransactionDate}}</td>
+        <td scope="col">{{x.BeneficiaryID}}</td>
+        <td scope="col">{{x.TransactionID}}</td>
+        <td scope="col" ><p *ngIf="x.TransactionType === 'Debit'">{{x.TransactionAmount}}</p></td>
+        <td scope="col"><p *ngIf="x.TransactionType === 'Credit'">{{x.TransactionAmount}}</p></td>
+    </tbody>
+</table>

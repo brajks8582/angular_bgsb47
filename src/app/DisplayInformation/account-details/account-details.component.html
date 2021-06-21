@@ -1,9 +1,13 @@
 <p>account-details works!</p>
+
 <!-- <ul *ngFor="let x of myAccountDetails">
     <li>{{x.AccountNo}} : {{x.FirstName}}</li>
     </ul> -->
-
-<ul>
+    <div class="btn-group-lg text-center" role="group" aria-label="Basic example">
+        <button type="button" class="btn btn-primary ">Account Details</button>
+        <button type="button" class="btn btn-primary">Display Reports</button>
+      </div>
+<!-- <ul>
     <li>{{myAccountDetails.AccountNo}}</li>
     <li>{{myAccountDetails.FirstName}}</li>
     <li>{{myAccountDetails.ModeOfOperation}}</li>
@@ -15,4 +19,52 @@
     <li>{{myAccountDetails.NominationDetails}}</li>
     <li>{{myAccountDetails.OpenDate}}</li>
     <li>{{myAccountDetails.Balance}}</li>
-</ul>
+</ul> -->
+
+<table class="table">
+    <tbody>
+      <tr>
+        <td>Account Number</td>
+        <td>{{myAccountDetails.AccountNo}}</td>
+      </tr>
+      <tr>
+        <td>Name Of Account Holder</td>
+        <td>{{myAccountDetails.FirstName}}</td>
+      </tr>
+      <tr>
+        <td>Mode Of Operation</td>
+        <td>{{myAccountDetails.ModeOfOperation}}</td>
+      </tr>
+      <tr>
+        <td>Account Type</td>
+        <td>{{myAccountDetails.AccountType}}</td>
+      </tr>
+      <tr>
+        <td>Address</td>
+        <td>{{myAccountDetails.Address}}</td>
+      </tr>
+      <tr>
+        <td>Gender</td>
+        <td>{{myAccountDetails.Gender}}</td>
+      </tr>
+      <tr>
+        <td>Email</td>
+        <td>{{myAccountDetails.Email}}</td>
+      </tr>
+      <tr>
+        <td>Date Of Birth</td>
+        <td>{{myAccountDetails.DOB}}</td>
+      </tr>
+      <tr>
+        <td>Nomination Details</td>
+        <td>{{myAccountDetails.NominationDetails}}</td>
+      </tr>
+      <tr>
+        <td>Balance</td>
+        <td>{{myAccountDetails.Balance}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  
