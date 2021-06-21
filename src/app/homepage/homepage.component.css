@@ -1,0 +1,42 @@
+* {
+    background-color: #E6F4FF; 
+}
+
+
+.content {
+    width: 60%;
+    margin-top: 10%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+
+.Content-Heading {
+    font-size: 4.5rem;
+}
+
+.r-access {
+    margin-top: 10%;
+}
+
+.email-input {
+    padding: 8px;
+    display: block;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    width: 100%
+}
+
+#signupbtn {
+    height: 45px;
+    border-radius: 100px;
+    background-color: #34E3D1;
+    color: white;
+    padding: 10px 10px;
+}
+
+#faq {
+    margin-top: 5%;
+    font-size: 10px;
+}

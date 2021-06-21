@@ -7,18 +7,30 @@ import { AccountDetailsComponent } from './DisplayInformation/account-details/ac
 import { StatementsComponent } from './DisplayInformation/statements/statements.component';
 import {AccountServiceService} from './Service/account-service.service';
 import {HttpClientModule} from '@angular/common/http';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
+import { HeaderComponent } from './Layout/header/header.component';
+import { FooterComponent } from './Layout/footer/footer.component';
+import { LogoComponent } from './Layout/logo/logo.component';
+import { HomepageComponent } from './homepage/homepage.component';
 imports :[BrowserModule, HttpClientModule]
 
 @NgModule({
   declarations: [
     AppComponent,
     AccountDetailsComponent,
-    StatementsComponent
+    StatementsComponent,
+    HeaderComponent,
+    FooterComponent,
+    LogoComponent,
+    HomepageComponent,
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FontAwesomeModule
   ],
   providers: [AccountServiceService],
   bootstrap: [AppComponent]

@@ -1,0 +1,61 @@
+.footer {
+    background-color: #03183F;
+}
+
+.foot-logo {
+    color: white;
+    font-weight: bold;
+    font-size: 2rem;
+    width: 50%;
+   padding-left: 20%;
+    margin-top: 5%;
+}
+
+
+
+.footer-text {
+    margin-top: 5%;
+    margin-left: auto;
+    margin-right: auto;
+    width: auto;
+}
+
+.footer-list {
+    list-style-type: none;
+}
+
+    .footer-list > li {
+        margin-top: 20px;
+    }
+
+        .footer-list > li > a {
+            text-decoration: none;
+            color: white;
+        }
+
+.footer-list-heading {
+font-weight:bold;
+font-size:1.5rem;
+}
+
+
+.white-text {
+    color: white;
+}
+
+
+    .social-logo {
+        width: 30px;
+        height: 35px;
+        margin: 10px;
+    }
+    
+    
+    
+    .bank-info-text {
+        width: auto;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    
