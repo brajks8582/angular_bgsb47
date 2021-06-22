@@ -9,10 +9,11 @@ import {IServicesSubscribed}  from '../../../../repo/ServicesSubscribed';
   styleUrls: ['./services-subscribed.component.css']
 })
 export class ServicesSubscribedComponent implements OnInit {
-  public myServicevess:any = [];
-  constructor() { }
+  public myServices:any = [];
+  constructor(private serviceobj : ServicesSubscribedService) { }
 
   ngOnInit(): void {
+    this.myServices=this.serviceobj.getmyServicesSubscribed().subscribe(data=>this.myServices=data);
   }
 
 }

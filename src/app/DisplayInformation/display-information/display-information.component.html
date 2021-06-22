@@ -3,7 +3,7 @@
     <button type="button" [ngClass]="{'btn-light' : toggle, 'btn-primary': !toggle}" id="btnDisplayReportsID" class="btn btn-light displaybtn displaybtn-r border border-dark border-2 dispay-main-btn" (click)="btnDisplayMainClick(2)">Display Reports</button>
   </div>
   <br>
-  <div *ngIf="displayReportsbtn" class="btn-group-lg text-center" role="group" aria-label="Basic example">
+  <div *ngIf="displayReportsbtngrp" class="btn-group-lg text-center" role="group" aria-label="Basic example">
     <button type="button" class="btn btn-light displaybtn displaybtn-l border border-dark border-2 btn-display-child" (click)="btnDisplayChildClick(1)">Mini Statement</button>
     <button type="button" class="btn btn-light displaybtn displaybtn-m border border-dark border-2 btn-display-child" (click)="btnDisplayChildClick(2)">Monthly Statement</button>
     <button type="button" class="btn btn-light displaybtn displaybtn-m border border-dark border-2 btn-display-child" (click)="btnDisplayChildClick(3)">Period Statement</button>
@@ -12,7 +12,12 @@
   </div>
 <br>
 
-<h3>Choose Your Favorite Cricket Player</h3>
+
+<p>Selected range: {{range.value | json}}</p>
+
+
+<div *ngIf="selectMonthDropdown">
+  <h3>Choose Your Month</h3>
 <select #cricket (change)="update($event)">
     <option value="default">----</option>
     <option *ngFor="let player of players" [value]="player">
@@ -22,4 +27,7 @@
   
 <p>You selected {{selected}}</p>
 <button type="button" class="btn btn-light displaybtn displaybtn-r border border-dark border-2 btn-display-child" (click)="btnUpdateMonthlyStatement()">Apply</button>
-  <router-outlet></router-outlet>
+ 
+</div>
+
+<router-outlet></router-outlet>

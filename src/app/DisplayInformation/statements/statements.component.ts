@@ -17,8 +17,5 @@ export class StatementsComponent implements OnInit {
   ngOnInit(): void {
     this.myStatements=this.statementobj.getmyStatements().subscribe(data=>this.myStatements=data);
   }
-  // ngDoCheck() {
-  //   console.log("change detected");
-  //   this.myStatements=this.statementobj.getmyStatements().subscribe(data=>this.myStatements=data);
-  // }
+  
 }

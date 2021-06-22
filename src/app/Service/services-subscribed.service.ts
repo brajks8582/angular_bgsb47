@@ -9,7 +9,7 @@ import {IServicesSubscribed}  from '../../../repo/ServicesSubscribed';
 })
 export class ServicesSubscribedService {
 
-  private url :string = "https://localhost:44352/api/TransactionsAccount/";
+  private url :string = "https://localhost:44352/api/ServicesSubscribeds";
   constructor(private http:HttpClient) { }
 
   getmyServicesSubscribed(): Observable<IServicesSubscribed[]> {
