@@ -1,0 +1,125 @@
+from Lata L Bhambwani to everyone in this breakout session:    10:29 AM
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Data.Entity.Spatial;
+using System.Data.Entity;
+
+from Lata L Bhambwani to everyone in this breakout session:    10:59 AM
+import { Component, OnInit } from '@angular/core';
+@Component({
+  selector: 'compdirectives1',
+  template: `
+  <h2>Structural Directives</h2>
+  <h2 *ngIf="true">Angular if</h2>
+   <h2 *ngIf="displayname">Angular displayname</h2>
+   <h2 *ngIf="displayname; else dispdata">  Display if display name is visible  </h2>
+  <h2 *ngIf="displayname; then thenblock; else elseblock">
+  Display if display name is visible
+  </h2>
+<ng-template #dispdata>
+<h2>Hello display this data for else part of if</h2>
+</ng-template>
+<ng-template #thenblock>
+<h2>Mumbai</h2>
+</ng-template>
+<ng-template #elseblock>
+<h2>Delhi</h2>
+</ng-template>
+  `,
+  styles: []
+})
+export class Compdirectives1Component implements OnInit {
+  public displayname=true;
+  constructor() { }
+  ngOnInit() {
+  }
+}
+
+from Lata L Bhambwani to everyone in this breakout session:    11:07 AM
+I will have to check your code
+from Lata L Bhambwani to everyone in this breakout session:    11:07 AM
+Bhaavna are you there
+from Lata L Bhambwani to everyone in this breakout session:    11:26 AM
+Bhaavna is your SQL Server Installerd???
+from Bhaavana Mishra to everyone in this breakout session:    11:27 AM
+yes ma'am it is installed
+from Bhaavana Mishra to everyone in this breakout session:    11:28 AM
+ma'am it is asking to install ssms shall i do it?
+from Lata L Bhambwani to everyone in this breakout session:    11:32 AM
+You already have SSMS
+from Lata L Bhambwani to everyone in this breakout session:    11:33 AM
+Bhavna->Start-->SQL Server Management Studio
+from Lata L Bhambwani to everyone in this breakout session:    11:34 AM
+Just check if your SQL Server is working or not?
+from Bhaavana Mishra to everyone in this breakout session:    11:34 AM
+yes ma'am done
+from Bhaavana Mishra to everyone in this breakout session:    11:34 AM
+ami audible ma'am?
+from Lata L Bhambwani to everyone in this breakout session:    11:35 AM
+is it showing master database
+from Braj Singh to everyone in this breakout session:    11:36 AM
+one more doubt ma'am
+from Braj Singh to everyone in this breakout session:    11:42 AM
+BSGB47
+from Braj Singh to everyone in this breakout session:    11:49 AM
+<add name="TestWebApiContext" connectionString="server=LAPTOP-F6189OB2\SQLEXPRESS; Initial Catalog=TestWebApiContext-20210616135201; Integrated Security=True; MultipleActiveResultSets=True; AttachDbFilename=|DataDirectory|TestWebApiContext-20210616135201.mdf" providerName="System.Data.SqlClient" />
+  </connectionStrings>
+from Satabdi Tanaya Uttarkabat to everyone in this breakout session:    11:59 AM
+<connectionStrings>
+        <add connectionString="server=LAPTOP-474GVBT1;database=onlinebanking;integrated security=true;" name="TestWebApiContext" providerName="System.Data.sqlClient"/>
+    </connectionStrings>
+from Lata L Bhambwani to everyone in this breakout session:    12:06 PM
+Enable Migrations
+from Lata L Bhambwani to everyone in this breakout session:    12:07 PM
+enable-migration
+from Lata L Bhambwani to everyone in this breakout session:    12:07 PM
+enable-migrations
+from Lata L Bhambwani to everyone in this breakout session:    12:09 PM
+add-migration mig1
+from Lata L Bhambwani to everyone in this breakout session:    12:09 PM
+update-database
+from Lata L Bhambwani to everyone in this breakout session:    12:43 PM
+create a property
+public x= new Date()
+<h2>{{x}}</h2>
+<h2>{{x |date:'short'}}</h2>
+<h2>{{x |date:'shortDate'}}</h2>
+<h2>{{x |date:'shortTime'}}</h2>
+similarly medium, mediumDate, mediumTime
+similarly long, longDate, longTime
+from Lata L Bhambwani to everyone in this breakout session:    12:43 PM
+import { Component, OnInit } from '@angular/core';
+@Component({
+  selector: 'pipeexamples',
+  template: `
+  <div>
+  Learning pipes
+   <h2>{{sname|lowercase|uppercase}}</h2>
+  <h2>{{sname|uppercase}}</h2>
+  <h2>{{sname|slice:3}}</h2>  
+  <h2>{{sname|slice:3:5}}</h2>  
+  <h2>{{person|json}}</h2>
+  <h2>Number Pipes</h2>
+  <h2>{{5.678|number:'1.2-3'}}</h2>  
+  <h2>{{5.678|number:'3.4-5'}}</h2>  
+<h2>{{5.678|number:'3.1-2'}}</h2> 
+  <h1>Percent Pipe</h1>
+  <h2>{{0.25|percent}}</h2>
+  <h2>Currency Pipe</h2>
+  <h2>{{0.25|currency}}</h2>
+  <h2>{{0.25|currency}}</h2>
+  <h2>{{0.25|currency}}</h2>
+  <h2>{{0.25|currency:'GBP'}}</h2> great britain pounds
+  <h2>{{0.25|currency:'Data':'code'}}</h2> 
+  </div>
+  `,
+  styles: []
+})
+export class PipeexamplesComponent implements OnInit {
+  public sname= "Lata L Bhambwani";
+  public person= {personName:"ABC", city:"Chennai"};
+  public x= new Date()
+  constructor() { }
+  ngOnInit(): void {
+  }
+}

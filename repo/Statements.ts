@@ -7,5 +7,6 @@ export interface IStatements
     BeneficiaryID:number,
     TransactionDate:Date,
     TransactionType:string,
-    TransactionMode:string
+    TransactionMode:string,
+    UpdateBalance:number
 }

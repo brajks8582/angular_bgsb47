@@ -7,11 +7,26 @@ import {IStatements}  from '../../../repo/Statements'
   providedIn: 'root'
 })
 export class StatementsmentsService {
-  private url :string = "https://localhost:44352/api/TransactionsAccount";
-  constructor(private http:HttpClient) { }
+  public mydata:string="";
+  myMethod(data:string) {
+    console.log("data from service =");
+    console.log(data); 
+    this.mydata =data;
+    this.getmyStatements();
+  }
+  private url :string = "" ;
+  constructor(private http:HttpClient) {
+    console.log("url  = ");
+    console.log(this.url);
+   }
 
+   
   getmyStatements(): Observable<IStatements[]> {
-
+    this.url = "https://localhost:44352/api/TransactionsAccount/" + this.mydata;
+    console.log("url of get obeserbles = ");
+    console.log(this.url);
     return this.http.get<IStatements[]>(this.url);
   }
+
+ 
 }

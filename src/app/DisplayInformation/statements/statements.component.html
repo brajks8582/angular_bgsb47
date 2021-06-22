@@ -2,7 +2,7 @@
 <!-- <ul *ngFor="let x of myStatements">
     <li>{{x.TransactionID}}:{{x.TransactionAmount}}:{{x.AccountNo}}:{{x.BeneficiaryID}}:{{x.TransactionDate}}:{{x.TransactionType}}:{{x.TransactionMode}} </li>
 </ul> -->
-<table class="table table-striped">
+<table class="table table-sm table-responsive table-striped table-bordered container">
     <thead>
       <tr>
         <th scope="col">Date</th>
@@ -10,13 +10,18 @@
         <th scope="col">Refference No.</th>
         <th scope="col">Debit</th>
         <th scope="col">Credit</th>
+        <th scope="col">Balance</th>
       </tr>
     </thead>
-    <tbody *ngFor="let x of myStatements">
-        <td scope="col">{{x.TransactionDate}}</td>
-        <td scope="col">{{x.BeneficiaryID}}</td>
-        <td scope="col">{{x.TransactionID}}</td>
-        <td scope="col" ><p *ngIf="x.TransactionType === 'Debit'">{{x.TransactionAmount}}</p></td>
-        <td scope="col"><p *ngIf="x.TransactionType === 'Credit'">{{x.TransactionAmount}}</p></td>
+    <tbody >
+      <tr *ngFor="let x of myStatements">
+        <td >{{x.TransactionDate | date:'shortDate'}}</td>
+        <td >{{x.BeneficiaryID}}</td>
+        <td >{{x.TransactionID}}</td>
+        <td  ><p *ngIf="x.TransactionType === 'Debit'">{{x.TransactionAmount}}</p></td>
+        <td ><p *ngIf="x.TransactionType === 'Credit'">{{x.TransactionAmount}}</p></td>
+        <td >{{x.UpdatedBalance}}</td>
+      </tr>
     </tbody>
 </table>
+
