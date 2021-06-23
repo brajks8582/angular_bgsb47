@@ -19,6 +19,7 @@ import { MiniStatementComponent } from './DisplayInformation/mini-statement/mini
 import { MonthlyStatementComponent } from './DisplayInformation/monthly-statement/monthly-statement.component';
 import { PeriodStatementComponent } from './DisplayInformation/period-statement/period-statement.component';
 import { BalanceEnquiryComponent } from './DisplayInformation/balance-enquiry/balance-enquiry.component';
+import { FormsModule } from '@angular/forms';
 imports :[BrowserModule, HttpClientModule]
 
 
@@ -46,10 +47,12 @@ const appRoutes: Routes = [
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
     HttpClientModule,
     FontAwesomeModule,
-    RouterModule
+    RouterModule,
+    
   ],
   providers: [AccountServiceService],
   bootstrap: [AppComponent]

@@ -12,8 +12,12 @@
   </div>
 <br>
 
+<div *ngIf="selectPeriod">
+  <p><input type="date" id="startdate" name="startdate" [(ngModel)]="startDate"></p>
+<p><input type="date" id="enddate" name="enddate" [(ngModel)]="endDate"></p>
+<button type="button" (click)="btnUpdatePeriodStatement()">Apply</button>
+</div>
 
-<p>Selected range: {{range.value | json}}</p>
 
 
 <div *ngIf="selectMonthDropdown">

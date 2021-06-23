@@ -11,6 +11,9 @@ export class DisplayInformationComponent implements OnInit {
 public displayReportsbtngrp=false;
 public selectMonthDropdown=false;
 public selectPeriod=false;
+public selectedperiod:string="";
+public startDate:Date;
+public endDate:Date;
 public primaryId=1;
 public data:string ="June";
 toggle = true;
@@ -50,7 +53,7 @@ constructor(private router: Router, private route: ActivatedRoute,private myServ
       this.router.navigate(['AccountDetails'],{relativeTo:this.route});
     }
     else{
-      this.data="ministatement";
+      this.data="/ministatement";
       this.myService.myMethod(this.data);
       this.router.navigate(['MiniStatement'],{relativeTo:this.route});
       this.displayReportsbtngrp=true;
@@ -65,16 +68,22 @@ constructor(private router: Router, private route: ActivatedRoute,private myServ
   });
 
   btnDisplayChildClick(id:number){
+    this.selectMonthDropdown = false;
+    this.selectPeriod=false;
     switch(id){
       case 1:
         console.log("displaychild = 1");
-        this.data="ministatement";
+        this.data="/ministatement";
         this.router.navigate(['MiniStatement'],{relativeTo:this.route});
         break;
 
       case 2:
         console.log("displaychild = 2");
         this.selectMonthDropdown = true;
+        break;
+
+      case 3:
+        this.selectPeriod=true;
         break;
 
       case 4:
@@ -94,11 +103,18 @@ constructor(private router: Router, private route: ActivatedRoute,private myServ
 
 
   btnUpdateMonthlyStatement() {
-    this.myService.myMethod(this.selected);
+    this.myService.myMethod("/"+this.selected);
       this.router.navigate(['MonthlyStatement'],{relativeTo:this.route});
 }
   enableDisableRule() {
     this.toggle = !this.toggle;
+}
+
+
+btnUpdatePeriodStatement() {
+  this.selectedperiod = "?PeriodStartDate=" + this.startDate + "&PeriodEndDate=" +this.endDate;
+  this.myService.myMethod(this.selectedperiod);
+  this.router.navigate(['PeriodStatement'],{relativeTo:this.route});
 }
 
 }

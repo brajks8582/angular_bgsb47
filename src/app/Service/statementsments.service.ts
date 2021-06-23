@@ -22,7 +22,7 @@ export class StatementsmentsService {
 
    
   getmyStatements(): Observable<IStatements[]> {
-    this.url = "https://localhost:44352/api/TransactionsAccount/" + this.mydata;
+    this.url = "https://localhost:44352/api/TransactionsAccount" + this.mydata;
     console.log("url of get obeserbles = ");
     console.log(this.url);
     return this.http.get<IStatements[]>(this.url);
