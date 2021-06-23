@@ -13,15 +13,14 @@ import { MiniStatementComponent } from './DisplayInformation/mini-statement/mini
 import { MonthlyStatementComponent } from './DisplayInformation/monthly-statement/monthly-statement.component';
 import { PeriodStatementComponent } from './DisplayInformation/period-statement/period-statement.component';
 import { BalanceEnquiryComponent } from './DisplayInformation/balance-enquiry/balance-enquiry.component';
-
+import { TransactionComponent } from './Transaction/transaction/transaction.component';
+import { TransactionDetailsComponent } from './Transaction/transaction-details/transaction-details.component';
+import { TransactionAcknowledgementComponent } from './Transaction/transaction-acknowledgement/transaction-acknowledgement.component';
 const routes: Routes = [{path: 'HomePage', component:HomepageComponent},
  {path:'AccountDetails', component:AccountDetailsComponent},
 {path:"DisplayInformation", component: DisplayInformationComponent,
 children: [
-  {
-     path: 'Statements',
-     component: StatementsComponent
-  },
+  {path: 'Statements',component: StatementsComponent},
   {path:'MiniStatement', component:MiniStatementComponent},
   {path:'MonthlyStatement', component:MonthlyStatementComponent},
   {path:'AccountDetails', component:AccountDetailsComponent},
@@ -30,14 +29,19 @@ children: [
   {path:'ServicesSubscribed',component:ServicesSubscribedComponent}
 ]}, 
 {path:"Statements", component: StatementsComponent},
+{path:'Transaction', component:TransactionComponent,
+children: [
+  {path: 'TransactionDetails',component: TransactionDetailsComponent},
+  {path:'TransactionAck', component:TransactionAcknowledgementComponent},
+]
+},
 {path:"**", component: HomepageComponent}];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  // imports: [RouterModule.forRoot(routes, {onSameUrlNavigation: ‘reload’})],
   exports: [RouterModule]
 })
 
 export class AppRoutingModule {
  
  }
-export const routingcomponents =[HomepageComponent,AccountDetailsComponent,DisplayInformationComponent,StatementsComponent,MiniStatementComponent,MonthlyStatementComponent,BalanceEnquiryComponent,ServicesSubscribedComponent]
+export const routingcomponents =[HomepageComponent,AccountDetailsComponent,DisplayInformationComponent,StatementsComponent,MiniStatementComponent,MonthlyStatementComponent,BalanceEnquiryComponent,ServicesSubscribedComponent,TransactionComponent,TransactionDetailsComponent,TransactionAcknowledgementComponent]

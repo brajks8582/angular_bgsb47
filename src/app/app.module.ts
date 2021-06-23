@@ -19,7 +19,10 @@ import { MiniStatementComponent } from './DisplayInformation/mini-statement/mini
 import { MonthlyStatementComponent } from './DisplayInformation/monthly-statement/monthly-statement.component';
 import { PeriodStatementComponent } from './DisplayInformation/period-statement/period-statement.component';
 import { BalanceEnquiryComponent } from './DisplayInformation/balance-enquiry/balance-enquiry.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+import { TransactionComponent } from './Transaction/transaction/transaction.component';
+import { TransactionDetailsComponent } from './Transaction/transaction-details/transaction-details.component';
+import { TransactionAcknowledgementComponent } from './Transaction/transaction-acknowledgement/transaction-acknowledgement.component';
 imports :[BrowserModule, HttpClientModule]
 
 
@@ -43,11 +46,15 @@ const appRoutes: Routes = [
     MonthlyStatementComponent,
     PeriodStatementComponent,
     BalanceEnquiryComponent,
+    TransactionComponent,
+    TransactionDetailsComponent,
+    TransactionAcknowledgementComponent,
     
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule,
     FontAwesomeModule,
