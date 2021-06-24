@@ -1,31 +1,50 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup,FormControl, Validators } from '@angular/forms';
+import { FormGroup,FormControl, Validators, FormBuilder } from '@angular/forms';
+import { HttpClient , HttpHeaders } from '@angular/common/http';
+
 @Component({
   selector: 'app-transaction',
   templateUrl: './transaction.component.html',
   styleUrls: ['./transaction.component.css']
 })
 export class TransactionComponent implements OnInit {
-  
+  public TransactionSuccessful=false;
+  currentDate = new Date();
   form = new FormGroup({
-    gender: new FormControl('', Validators.required),
-    mode: new FormControl('', Validators.required),
-    type: new FormControl('',Validators.required),
-    beneficiary: new FormControl('',Validators.required)
+    TransactionMode: new FormControl('', Validators.required),
+    Type: new FormControl('',Validators.required),
+    BeneficiaryID: new FormControl('',Validators.required),
+    TransactionAmount: new FormControl('',Validators.required),
+    AccountNo:new FormControl('9'),
+    TransactionDate:new FormControl(this.currentDate),
+    TransactionStatus:new FormControl('Completed'),
   });
   
   get f(){
     return this.form.controls;
   }
   
+  
   submit(){
-    console.log(this.form.value);
-    
+    const httpOptions = {
+      headers: new HttpHeaders({
+       'Content-Type': 'application/json',
+       'Authorization': 'my-auth-token',
+       'status':'ok'
+      })
+   };
+   
+    this.http.post('https://localhost:44352/api/TransactionsAccount', this.form.value,{headers: new HttpHeaders({'status': 'ok' || 'ok'})}).subscribe(
+    (response) => console.log(response),
+    (error) => console.log(error)
+  )
+    this.TransactionSuccessful =true;
   }
   
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
+
   }
 
 }

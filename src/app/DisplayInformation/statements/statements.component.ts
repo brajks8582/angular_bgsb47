@@ -3,6 +3,8 @@ import {Observable} from 'rxjs/';
 import { map, catchError } from 'rxjs/operators';
 import {StatementsmentsService} from '../../Service/statementsments.service';
 import {IStatements}  from '../../../../repo/Statements';
+import * as jsPDF from 'jspdf';
+import * as html2canvas from 'html2canvas';
 @Component({
   selector: 'app-statements',
   templateUrl: './statements.component.html',

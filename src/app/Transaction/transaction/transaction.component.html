@@ -1,107 +1,61 @@
-<!-- <form formGroupName="TransactionForm">
-    <fieldset class="form-group">
-      <div class="row">
-        <legend class="col-form-label col-sm-2 pt-0">Transaction Mode</legend>
-        <div class="col-sm-10">
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
-            <label class="form-check-label" for="gridRadios1">
-              NEFT
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
-            <label class="form-check-label" for="gridRadios2">
-              IMPS
-            </label>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <legend class="col-form-label col-sm-2 pt-0">Transaction Type</legend>
-        <div class="col-sm-10">
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
-            <label class="form-check-label" for="gridRadios1">
-              Within The Bank
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
-            <label class="form-check-label" for="gridRadios2">
-              Outside The Bank
-            </label>
-          </div>
-        </div>
-      </div>
-    </fieldset>
-</form> -->
-<!-- <input id="name" type="text" [formControl]="name">
-<input id="sname" type="text" [formControl]="name">
-<p>Value: {{ name.value }}</p> -->
-<br><br><br>
-<div class="container">
-    <form [formGroup]="form" (ngSubmit)="submit()">
-           
-        <div class="form-group">
-            <label for="gender">Gender:</label>
-            <div>
-              <input id="male" type="radio" value="male" name="gender" formControlName="gender">
-              <label for="male">Male</label>
-           </div>
-  
-           <div>
-              <input id="female" type="radio" value="female" name="gender" formControlName="gender">
-              <label for="female">Female</label>
-           </div>
-              
-            <div *ngIf="f.gender.touched && f.gender.invalid" class="alert alert-danger">
-                <div *ngIf="f.gender.errors?.required">Name is required.</div>
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="mode">MODE:</label>
-            <div>
-              <input id="neft" type="radio" value="neft" name="mode" formControlName="mode">
-              <label for="neft">NEFT</label>
-           </div>
-  
-           <div>
-              <input id="imps" type="radio" value="imps" name="mode" formControlName="mode">
-              <label for="imps">IMPS</label>
-           </div>
-              
-            <div *ngIf="f.gender.touched && f.gender.invalid" class="alert alert-danger">
-                <div *ngIf="f.gender.errors?.required">Name is required.</div>
-            </div>
+
+
+
+<div class="d-md-flex">
+    <div class="w-50">
+<div class="transaction-div">
+    <form [formGroup]="form" class="transaction-from " (ngSubmit)="submit()">
+        <table class="table table-sm table-responsive  transaction-table container">
+            <tbody>
+              <tr>
+                  <td ><label for="mode">MODE:</label></td>
+                  <td ><input id="imps" type="radio" value="IMPS" class="radio-btn" name="TransactionMode" formControlName="TransactionMode">
+                    <label for="imps">IMPS</label>
+                    <input id="neft" type="radio" value="NEFT"  class="radio-btn" name="TransactionMode" formControlName="TransactionMode">
+                    <label for="neft">NEFT</label>
+                </td>
+              </tr>
+              <tr>
+                <td><label for="type">TYPE:</label></td>
+                <td><input id="sameBank" type="radio" value="sameBank" name="Type" formControlName="Type">
+                    <label for="sameBank">Within The Bank</label>
+                    <input id="outsideBank" type="radio" value="outsideBank"  name="Type" formControlName="Type">
+                    <label for="outsideBank">Outside The Bank</label>
+                </td>
+              </tr>
+                <tr>
+                    <td><label for="BeneficiaryID">Select Beneficiary:</label></td>
+                    <td><input id="BeneficiaryID" type="text" value="" name="BeneficiaryID" placeholder="EnterBeneficiaryID" formControlName="BeneficiaryID"></td>
+                </tr>
+                <tr>
+                    <td><label for="TransactionAmount">Enter Amount</label></td>
+                    <td><input id="TransactionAmount" type="text" value="" name="TransactionAmount" placeholder="Enter Transaction Amount" formControlName="TransactionAmount"></td>
+                </tr>
+                <tr>
+                    <td><label for="password">Enter Transaction Password</label></td>
+                    <td><input id="password" type="text" value="" name="password" placeholder="Enter Transaction Password" ></td>
+                </tr>
+                <tr><button class="btn btn-primary"  [disabled]="!form.valid" type="submit">Submit</button></tr>      
+            </tbody>
+        </table>
+        </form>
+        
+        <div *ngIf="TransactionSuccessful">
+            Your Transaction Was SuccessFULL
         </div>
 
-        <div class="form-group">
-            <label for="type">TYPE:</label>
-            <div>
-              <input id="sameBank" type="radio" value="sameBank" name="type" formControlName="type">
-              <label for="sameBank">Within The Bank</label>
-           </div>
-  
-           <div>
-              <input id="outsideBank" type="radio" value="outsideBank" name="type" formControlName="type">
-              <label for="outsideBank">Outside The Bank</label>
-           </div>
-              
-            <div *ngIf="f.gender.touched && f.gender.invalid" class="alert alert-danger">
-                <div *ngIf="f.gender.errors?.required">Name is required.</div>
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="beneficiary">Select Beneficiary:</label>
-            <div>
-              <input id="beneficiary" type="text" value="" name="beneficiary" formControlName="beneficiary">
-              <label for="beneficiary">Enter the beneficiary</label>
-           </div>
-            <div *ngIf="f.gender.touched && f.gender.invalid" class="alert alert-danger">
-                <div *ngIf="f.gender.errors?.required">Name is required.</div>
-            </div>
-        </div>
-        <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Submit</button>
-    </form>
 </div>
+
+    </div>
+    <div class="w-50">
+        <div class="content">
+            <div class="Content-Heading">Transaction Within Seconds</div><br><br><br>
+        </div>
+    </div>
+    
+</div>
+
+   
+
+
+ 

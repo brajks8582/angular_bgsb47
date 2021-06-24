@@ -1,3 +1,4 @@
+
 .displaybtn-l {
     border-top-left-radius: 50px;
     border-bottom-left-radius: 50px;
@@ -18,4 +19,18 @@ border-radius: 0;
 
 .btn-display-child:focus{
     background-color: aquamarine;
+}
+
+.selectmonthdiv{
+    display: flex;
+    margin-left: 30%;
+    margin-right: auto;
+}
+
+.btn-display-apply{
+    border-radius: 50px;
+}
+
+.monthlydivmargin{
+    margin-left: 30px;
 }

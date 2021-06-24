@@ -12,7 +12,7 @@
   </div>
 <br>
 
-<div *ngIf="selectPeriod">
+<div *ngIf="selectPeriod" class="text-center">
   <p><input type="date" id="startdate" name="startdate" [(ngModel)]="startDate"></p>
 <p><input type="date" id="enddate" name="enddate" [(ngModel)]="endDate"></p>
 <button type="button" (click)="btnUpdatePeriodStatement()">Apply</button>
@@ -20,8 +20,8 @@
 
 
 
-<div *ngIf="selectMonthDropdown">
-  <h3>Choose Your Month</h3>
+<div *ngIf="selectMonthDropdown" class="selectmonthdiv monthlydivmargin">
+  <h2 class="monthlydivmargin">Choose Your Month</h2>
 <select #cricket (change)="update($event)">
     <option value="default">----</option>
     <option *ngFor="let player of players" [value]="player">
@@ -29,8 +29,8 @@
     </option>
 </select>
   
-<p>You selected {{selected}}</p>
-<button type="button" class="btn btn-light displaybtn displaybtn-r border border-dark border-2 btn-display-child" (click)="btnUpdateMonthlyStatement()">Apply</button>
+<h2 class="monthlydivmargin">You selected {{selected}}</h2>
+<button type="button" class="btn btn-primary monthlydivmargin displaybtn displaybtn-r border border-dark border-2 btn-display-apply" (click)="btnUpdateMonthlyStatement()">Apply</button>
  
 </div>
 
